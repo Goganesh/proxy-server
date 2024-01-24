@@ -1,0 +1,6 @@
+com:
+  goganesh:
+    proxy-server:
+      blocking-period-minutes: 60
+      check-blocks-interval-cron: "* */5 * * * *"
+      servers: 45.146.83.114:12323:pack2use2:ab0703df24,68.69.191.115:12323:pack2use2:ab0703df24,94.131.69.105:12323:pack2use2:ab0703df24,141.11.242.196:12323:pack2use2:ab0703df24,104.234.255.26:12323:pack2use2:ab0703df24
