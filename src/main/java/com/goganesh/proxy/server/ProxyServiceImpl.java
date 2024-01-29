@@ -18,7 +18,6 @@ public class ProxyServiceImpl implements ProxyService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProxyServiceImpl.class);
 
-
     private static final HttpStatus ALL_PROXY_BAN_CODE = HttpStatus.I_AM_A_TEAPOT;
     private static final List<HttpStatusCode> REDIRECT_CODES = Arrays.asList(HttpStatus.MOVED_PERMANENTLY, HttpStatus.FOUND, HttpStatusCode.valueOf(311));
 

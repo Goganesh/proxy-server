@@ -19,7 +19,7 @@ public class ProxyClientImpl implements ProxyClient {
     private final RestTemplate restTemplate;
     private final String serverName;
 
-    private LocalDateTime lastLunchTime = LocalDateTime.now();
+    private volatile LocalDateTime lastLunchTime = LocalDateTime.now();
 
     public ProxyClientImpl(String username, String password, String proxyUrl, int port) {
         final SimpleClientHttpRequestFactory proxyFactory = new SimpleClientHttpRequestFactory();
