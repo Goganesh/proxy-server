@@ -29,7 +29,7 @@ public class BlockProxyClientServiceImpl implements BlockProxyClientService {
 
     @Override
     public void block(ProxyClient client) {
-        LOGGER.info(String.format("Proxe server %s is blocked", client.getServerName()));
+        LOGGER.info(String.format("Proxу server %s is blocked", client.getServerName()));
         blocks.put(client, LocalDateTime.now());
     }
 
@@ -40,7 +40,7 @@ public class BlockProxyClientServiceImpl implements BlockProxyClientService {
                 .filter(entry -> entry.getValue().plusMinutes(blockingPeriodMinutes).isBefore(LocalDateTime.now()))
                 .map(Map.Entry::getKey)
                 .forEach(client -> {
-                    LOGGER.info(String.format("Proxe server %s is unblocked", client.getServerName()));
+                    LOGGER.info(String.format("Proxу server %s is unblocked", client.getServerName()));
                     blocks.remove(client);
                 });
     }
