@@ -19,7 +19,7 @@ public class ProxyServiceImpl implements ProxyService {
     private static final Logger LOGGER = LoggerFactory.getLogger(ProxyServiceImpl.class);
 
     private static final HttpStatus ALL_PROXY_BAN_CODE = HttpStatus.I_AM_A_TEAPOT;
-    private static final List<HttpStatusCode> REDIRECT_CODES = Arrays.asList(HttpStatus.MOVED_PERMANENTLY, HttpStatus.FOUND, HttpStatusCode.valueOf(311));
+    private static final List<Integer> REDIRECT_CODES = Arrays.asList(301, 302, 307);
 
     private final BlockProxyClientService blockProxyClientService;
     private final ProxyClientHolder proxyClientHolder;
@@ -65,7 +65,7 @@ public class ProxyServiceImpl implements ProxyService {
                 response = handleRequest(uri, method, requestEntity, tClass);
             }
             HttpStatusCode code = response.getStatusCode();
-            if (REDIRECT_CODES.contains(code)) {
+            if (REDIRECT_CODES.contains(code.value())) {
                 URI newUri = response.getHeaders()
                         .getLocation();
                 response = handleRequest(newUri, method, requestEntity, tClass);
